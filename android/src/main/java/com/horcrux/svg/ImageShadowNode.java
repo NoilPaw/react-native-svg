@@ -130,7 +130,7 @@ public class ImageShadowNode extends RenderableShadowNode {
 
     private void loadBitmap(ImageRequest request) {
         final DataSource<CloseableReference<CloseableImage>> dataSource
-            = Fresco.getImagePipeline().fetchDecodedImage(request, getThemedContext());
+                = Fresco.getImagePipeline().fetchDecodedImage(request, getThemedContext());
 
         dataSource.subscribe(new BaseBitmapDataSubscriber() {
                                  @Override
@@ -148,7 +148,7 @@ public class ImageShadowNode extends RenderableShadowNode {
                                      FLog.w(ReactConstants.TAG, dataSource.getFailureCause(), "RNSVG: fetchDecodedImage failed!");
                                  }
                              },
-            UiThreadImmediateExecutorService.getInstance()
+                UiThreadImmediateExecutorService.getInstance()
         );
     }
 
@@ -182,7 +182,7 @@ public class ImageShadowNode extends RenderableShadowNode {
 
         RectF vbRect = new RectF(0, 0, renderRect.width() / mScale, renderRect.height() / mScale);
         RectF eRect = new RectF(getCanvasLeft(), getCanvasTop(), rectWidth / mScale + getCanvasLeft(), rectHeight / mScale + getCanvasTop());
-        Matrix transform = ViewBox.getTransform(vbRect, eRect, mAlign, mMeetOrSlice, false);
+        Matrix transform = ViewBox.getTransform(renderRect, eRect, mAlign, mMeetOrSlice, false);
 
         transform.mapRect(renderRect);
         Matrix translation = new Matrix();
@@ -220,7 +220,7 @@ public class ImageShadowNode extends RenderableShadowNode {
 
     private void tryRender(ImageRequest request, Canvas canvas, Paint paint, float opacity) {
         final DataSource<CloseableReference<CloseableImage>> dataSource
-            = Fresco.getImagePipeline().fetchImageFromBitmapCache(request, getThemedContext());
+                = Fresco.getImagePipeline().fetchImageFromBitmapCache(request, getThemedContext());
 
         try {
             final CloseableReference<CloseableImage> imageReference = dataSource.getResult();
