@@ -281,7 +281,7 @@ abstract public class RenderableShadowNode extends VirtualNode {
 
     @Override
     public int hitTest(Point point, @Nullable Matrix matrix) {
-        if (mPath == null) {
+        if (mPath == null || !mResponsible) {
             return -1;
         }
 
@@ -327,7 +327,7 @@ abstract public class RenderableShadowNode extends VirtualNode {
                 targetAttributeList.size() == 0) {
             return;
         }
-        
+
         mOriginProperties = new ArrayList<>();
         mAttributeList = clonePropList();
 
