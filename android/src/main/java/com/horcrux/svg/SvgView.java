@@ -49,6 +49,7 @@ public class SvgView extends View {
     private EventDispatcher mEventDispatcher;
     private long mGestureStartTime = TouchEvent.UNSET;
     private int mTargetTag;
+    private long mGestureStartTime = TouchEvent.UNSET;
 
     private final TouchEventCoalescingKeyHelper mTouchEventCoalescingKeyHelper =
             new TouchEventCoalescingKeyHelper();
@@ -147,6 +148,7 @@ public class SvgView extends View {
             // End of the gesture. We reset target tag to -1 and expect no further event associated with
             // this gesture.
             dispatch(ev, TouchEventType.END);
+            mGestureStartTime = TouchEvent.UNSET;
             mTargetTag = -1;
         } else if (action == MotionEvent.ACTION_MOVE) {
             // Update pointer position for current gesture
@@ -157,6 +159,7 @@ public class SvgView extends View {
         } else if (action == MotionEvent.ACTION_POINTER_UP) {
             // Exactly onw of the pointers goes up
             dispatch(ev, TouchEventType.END);
+            mGestureStartTime = TouchEvent.UNSET;
             mTargetTag = -1;
             mGestureStartTime = TouchEvent.UNSET;
         } else if (action == MotionEvent.ACTION_CANCEL) {
