@@ -31,6 +31,8 @@
     - react-native-svg >= 4.3.0 only supports react-native >= 0.33.0
     - react-native-svg >= 4.4.0 only supports react-native >= 0.38.0 and react >= 15.4.0
     - react-native-svg >= 4.5.0 only supports react-native >= 0.40.0 and react >= 15.4.0
+    - react-native-svg >= 5.1.8 only supports react-native >= 0.44.0 and react == 16.0.0-alpha.6
+    - react-native-svg >= 5.2.0 only supports react-native >= 0.45.0 and react == 16.0.0-alpha.12
     
 2. Link native code
 
@@ -535,7 +537,7 @@ The SVG <Symbol> element is used to define reusable symbols. The shapes nested i
     height="150"
     width="110"
 >
-    <Symbol id="symbol" viewbox="0 0 150 110" width="100" height="50">
+    <Symbol id="symbol" viewBox="0 0 150 110" width="100" height="50">
         <Circle cx="50" cy="50" r="40" strokeWidth="8" stroke="red" fill="red"/>
         <Circle cx="90" cy="60" r="40" strokeWidth="8" stroke="green" fill="white"/>
     </Symbol>
@@ -629,7 +631,7 @@ The <ClipPath> SVG element defines a clipping path. A clipping path is used/refe
     width="100"
 >
     <Defs>
-        <RadialGradient id="grad" cx="50%" cy="50%" rx="50%" ry="50%" fx="50%" fy="50%">
+        <RadialGradient id="grad" cx="50%" cy="50%" rx="50%" ry="50%" fx="50%" fy="50%" gradientUnits="userSpaceOnUse">
             <Stop
                 offset="0%"
                 stopColor="#ff0"
@@ -726,7 +728,7 @@ The <RadialGradient> element is used to define a radial gradient. The <RadialGra
     width="300"
 >
     <Defs>
-        <RadialGradient id="grad" cx="150" cy="75" rx="85" ry="55" fx="150" fy="75">
+        <RadialGradient id="grad" cx="150" cy="75" rx="85" ry="55" fx="150" fy="75" gradientUnits="userSpaceOnUse">
             <Stop
                 offset="0"
                 stopColor="#ff0"
@@ -779,7 +781,7 @@ You can use these events to provide interactivity to your react-native-svg compo
 
 ![TouchEvents](./screenShoots/touchevents.gif)
 
-For more examples of touch in action, checkout the [TouchEvents.js examples](Example/examples/TouchEvents.js).
+For more examples of touch in action, checkout the [TouchEvents.js examples](https://github.com/magicismight/react-native-svg-example/blob/master/examples/TouchEvents.js).
 
 ### Run example:
 

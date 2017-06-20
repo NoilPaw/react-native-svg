@@ -1,6 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Path from './Path';
 import {pathProps} from '../lib/props';
+import extractPolyPoints from '../lib/extract/extractPolyPoints';
 
 export default class extends Component{
     static displayName = 'Polygon';
@@ -26,7 +28,7 @@ export default class extends Component{
         return <Path
             ref={ele => {this.root = ele;}}
             {...this.props}
-            d={`M${points.trim().replace(/\s+/g, 'L')}z`}
+            d={`M${extractPolyPoints(points)}z`}
         />;
     }
 }

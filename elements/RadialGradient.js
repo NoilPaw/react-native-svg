@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {numberProp} from '../lib/props';
 import extractGradient from '../lib/extract/extractGradient';
 import createReactNativeComponentClass from 'react-native/Libraries/Renderer/src/renderers/native/createReactNativeComponentClass';
@@ -14,6 +15,7 @@ export default class extends Component{
         cx: numberProp.isRequired,
         cy: numberProp.isRequired,
         r: numberProp,
+        gradientUnits: PropTypes.oneOf(['objectBoundingBox', 'userSpaceOnUse']),
         id: PropTypes.string.isRequired
     };
 
