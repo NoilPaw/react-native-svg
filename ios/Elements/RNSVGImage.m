@@ -105,7 +105,7 @@
     CGPathRelease(hitArea);
     
     CGContextSaveGState(context);
-    if (!imageRatio || imageRatio == rectRatio) {
+    CGContextTranslateCTM(context, 0, rect.size.height + 2 * rect.origin.y);
 
     [self clip:context];
     CGContextClipToRect(context, rect);
